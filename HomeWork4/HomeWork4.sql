@@ -250,20 +250,6 @@ WHERE id NOT IN (
 # Пусть задан некоторый пользователь. Из всех друзей
 # этого пользователя найдите человека, который больше всех написал ему сообщений.
 
-SELECT CONCAT(firstname, ' ', lastname) AS 'Most sender, from-msg-to' 
-FROM users 
-WHERE id = (
-	SELECT MAX(from_user_id) 
-	FROM messages 
-	WHERE to_user_id = (
-		SELECT id 
-		FROM users 
-		WHERE firstname='Reuben')) -- Пользователь-получатель.
-UNION
-SELECT SUM(to_user_id) FROM messages WHERE id = (SELECT id FROM users WHERE firstname='Austyn')
-UNION
-SELECT CONCAT(firstname, ' ', lastname) FROM users WHERE firstname='Austyn';
-
 SELECT from_user_id AS 'пользователь с id', to_user_id AS 'отправил пользователю с id', COUNT(*) AS 'количество сообщений' 
 FROM messages 
 WHERE from_user_id = 8 and to_user_id = 1
