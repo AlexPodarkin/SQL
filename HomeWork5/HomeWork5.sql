@@ -210,7 +210,7 @@ INSERT INTO `profiles` (user_id, gender, birthday, photo_id, hometown) VALUES
 (10, 'm', '1977-05-14', NULL, 'New Nellaside'); 
 
  
- # HOME WORK !
+ #  HOME WORK !
 
  # Создайте представление, в которое попадет информация о пользователях (имя, фамилия, город и пол),
  # которые не старше 20 лет.
